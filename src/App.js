@@ -1,9 +1,28 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import About from "./pages/About.jsx";
-import Booking from "./pages/Booking.jsx";
-import Contact from "./pages/Contact.jsx";
-import Programs from "./pages/Programs.jsx";
-import Tourism from "./pages/Tourism.jsx";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import About from './pages/About';
+import Programs from './pages/Programs';
+import Tourism from './pages/Tourism';
+import Booking from './pages/Booking';
+import Contact from './pages/Contact';
+import './App.css';
 
+function App() {
+  return (
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/programs" element={<Programs />} />
+          <Route path="/tourism" element={<Tourism />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
+}
 
+export default App;
