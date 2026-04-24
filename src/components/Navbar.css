@@ -1,92 +1,80 @@
 .navbar {
-  background-color: #ffffff;
-  padding: 0px 24px;
+  background: #4E2A1E;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
 }
 
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
 }
 
-/* LOGO FIX */
-.logo {
+.navbar-logo {
+  color: #FFB81C;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #FFB81C;
+}
+
+.nav-menu {
   display: flex;
-  align-items: center;
-}
-
-.logo-image {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin-left: -95px; /* Adjust this value to move the logo left or right */
-}
-
-/* NAV LINKS */
-.nav-links {
-  display: flex;
+  list-style: none;
   gap: 2rem;
 }
 
-.nav-links a {
-  color:   #e74c3c;
-
+.nav-item a {
+  color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.nav-links a:hover {
-  color:  #e74c3c;
-
-
+.nav-item a:hover {
+  color: #FFB81C;
 }
 
-.nav-links a.active {
-  color: #5b0a01;
-  border-bottom: 2px solid #e74c3c;
-  text-size-adjust: 20px;
-}
-
-/* HAMBURGER */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  margin: 3px 0;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
   }
 
-  .nav-links {
-    position: absolute;
+  .nav-menu {
+    position: fixed;
     top: 70px;
     left: -100%;
-    flex-direction: column;
-    background-color: #3f3f21;
     width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    padding: 2rem 0;
+    height: calc(100vh - 70px);
+    background: #4E2A1E;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    transition: left 0.3s ease;
     gap: 1.5rem;
   }
 
-  .nav-links.active {
+  .nav-menu.active {
     left: 0;
+  }
+
+  .nav-item a {
+    font-size: 1.2rem;
   }
 }

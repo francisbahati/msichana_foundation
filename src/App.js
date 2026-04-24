@@ -6,7 +6,6 @@ import Programs from './pages/Programs';
 import Tourism from './pages/Tourism';
 import Booking from './pages/Booking';
 import Contact from './pages/Contact';
-import './App.css';
 
 function App() {
   return (

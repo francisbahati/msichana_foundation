@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import './Pages.css';
 
 const tourismPackages = [
   { name: 'Soccer Experience', price: '$1,200', days: '7 days', icon: '⚽', description: 'Train with local coaches + safari' },
@@ -18,7 +17,6 @@ function Tourism() {
         <h1>Experience Sports Tourism in Tanzania</h1>
         <p>Combine sports training, cultural immersion, and safari adventure while supporting girls’ empowerment.</p>
       </div>
-
       <div className="packages-grid">
         {tourismPackages.map((pkg, idx) => (
           <div key={idx} className="package-card">
@@ -31,7 +29,6 @@ function Tourism() {
           </div>
         ))}
       </div>
-
       <div className="container" style={{ textAlign: 'center', margin: '3rem auto' }}>
         <h2>Why Choose Us</h2>
         <div className="stats-grid" style={{ marginTop: '2rem' }}>
