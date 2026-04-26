@@ -1,55 +1,141 @@
 import { Link } from 'react-router-dom';
+import './Programs.css'; // import the dedicated styles
 
-const programsDetailed = [
+const programsData = [
   {
+    id: 1,
+    title: 'SPORTS TOURISM',
     icon: '⚽',
-    title: 'Sports Empowerment',
-    description: 'We use sports to build confidence, discipline, and leadership.',
-    details: ['Weekly training camps with certified coaches', 'Inter‑school leagues and talent identification', 'Athlete scholarships', 'Leadership workshops through team sports']
+    color: '#2E7D32', // green
+    description: 'Combine professional sports training with unforgettable safari adventures, all while supporting girls’ empowerment.',
+    subPrograms: [
+      {
+        name: 'DISCOVERY EYES',
+        details: [
+          'Soccer with Safari',
+          'Netball with Safari',
+          'Basketball / Volleyball with Safari'
+        ],
+        description: 'Train in your favourite sport and then explore Tanzania’s iconic wildlife parks.'
+      },
+      {
+        name: 'Suzuki Kilimanjaro Ride & Mountain Biking',
+        details: [
+          'Road biking safari',
+          'Mountain biking on Kilimanjaro slopes'
+        ],
+        description: 'Cycling adventures for all levels – from paved roads to rugged mountain trails.'
+      },
+      {
+        name: 'Migration Walk',
+        details: [
+          'Northern Circuit (Serengeti, Ngorongoro)',
+          'Nyerere National Park with Usambara Mountain trek'
+        ],
+        description: 'Walk alongside the great migration and discover hidden landscapes.'
+      }
+    ]
   },
   {
-    icon: '📚',
-    title: 'Education & Mentorship',
-    description: 'We support girls to stay in school and achieve their goals.',
-    details: ['After‑school tutoring', 'Career guidance and university preparation', 'One‑on‑one mentorship', 'Scholarships for secondary education']
+    id: 2,
+    title: 'VOLUNTOURISM',
+    icon: '🌍',
+    color: '#F9A825', // yellow/gold
+    description: 'Travel with purpose – volunteer in community development and sports coaching while experiencing authentic African life.',
+    subPrograms: [
+      {
+        name: 'Community Impact Safari Program (CISP)',
+        details: [
+          'Assist in coaching girls’ sports teams',
+          'Help build and renovate school sports facilities',
+          'Teach life skills and leadership workshops'
+        ],
+        description: 'Empowering communities. Transforming lives. Experiencing Africa.'
+      },
+      {
+        name: 'Hash Run (Marathon Experience)',
+        details: [
+          'Run in national parks',
+          'Highland trail running',
+          'Beach and sand runs'
+        ],
+        description: 'A unique running adventure – from game park trails to ocean shores.'
+      }
+    ]
   },
   {
-    icon: '💼',
-    title: 'Economic Empowerment',
-    description: 'We provide skills for financial independence and entrepreneurship.',
-    details: ['Entrepreneurship bootcamps', 'Digital literacy & financial courses', 'Income‑generating project grants', 'Job placement connections']
+    id: 3,
+    title: 'AGROBUSINESS - BIA',
+    icon: '🌱',
+    color: '#8B5E3C', // warm brown
+    description: 'Empower rural communities through sustainable farming and business training. High ROI projects for women and youth.',
+    subPrograms: [
+      {
+        name: 'Msichana Agri‑Empowerment Projects',
+        details: [
+          'Growing Food. Growing Futures. Empowering Women.'
+        ],
+        description: 'SMART HORTICULTURE PROJECT (HIGH ROI) – Vegetables & Fruits for Urban Markets'
+      },
+      {
+        name: 'Project 1: Intensive Farming',
+        details: [
+          'High‑demand crops using modern techniques (drip irrigation, greenhouses)',
+          'Access to micro‑grants and market linkages'
+        ],
+        description: 'Transform small plots into profitable agribusinesses.'
+      }
+    ]
   }
 ];
 
 function Programs() {
   return (
-    <div className="page-container">
-      <div className="page-hero" style={{ background: '#FFFFFF', borderBottom: `3px solid #FF4C91` }}>
-        <h1 style={{ color: '#4E2A1E' }}>Our Programs</h1>
-        <p style={{ color: '#8B5E3C' }}>Designed to empower girls and build future leaders across Africa.</p>
+    <div className="programs-page">
+      {/* Hero section */}
+      <div className="programs-hero">
+        <h1>Our Programs</h1>
+        <p>Transform lives through sport, volunteering, and sustainable agriculture.</p>
       </div>
-      <div className="container" style={{ padding: '2rem 1rem' }}>
-        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 2rem' }}>
-          <p style={{ fontSize: '1.1rem', color: '#3A2015' }}>Our holistic approach combines sports, education, and economic skills to create lasting change.</p>
+
+      <div className="container">
+        <div className="programs-intro">
+          Choose your path to make a lasting impact – whether on the field, in the community, or on the farm.
         </div>
-        <div className="programs-detailed">
-          {programsDetailed.map((program, idx) => (
-            <div key={idx} className="program-card" style={{ borderTop: `5px solid #FF4C91`, textAlign: 'left' }}>
-              <div className="program-icon">{program.icon}</div>
-              <h2 style={{ color: '#4E2A1E' }}>{program.title}</h2>
-              <p style={{ color: '#FF4C91', fontWeight: '600' }}>{program.description}</p>
-              <ul style={{ marginTop: '1rem', listStyle: 'none', paddingLeft: 0 }}>
-                {program.details.map((item, i) => (
-                  <li key={i} style={{ margin: '0.5rem 0', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                    <span style={{ color: '#FFB81C' }}>✓</span> {item}
-                  </li>
-                ))}
-              </ul>
+
+        {/* Loop main programs */}
+        {programsData.map((program) => (
+          <div key={program.id} className="program-section">
+            <div className="program-header" style={{ borderLeftColor: program.color }}>
+              <span className="program-icon">{program.icon}</span>
+              <h2 className="program-title" style={{ color: program.color }}>{program.title}</h2>
             </div>
-          ))}
-        </div>
-        <div style={{ textAlign: 'center', margin: '3rem 0' }}>
-          <Link to="/booking" className="btn-primary">Join a Program</Link>
+            <p className="program-description">{program.description}</p>
+
+            {/* Sub-programs – stacked vertically, no boxes */}
+            {program.subPrograms.map((sub, idx) => (
+              <div key={idx} className="sub-program">
+                <h3 className="sub-program-name" style={{ color: program.color }}>
+                  {sub.name}
+                </h3>
+                <p className="sub-program-desc">{sub.description}</p>
+                <ul className="sub-program-list">
+                  {sub.details.map((item, i) => (
+                    <li key={i}>
+                      <span className="check-icon">✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        ))}
+
+        {/* Call to action */}
+        <div className="programs-cta">
+          <Link to="/booking" className="btn-programs">
+            Join a Program
+          </Link>
         </div>
       </div>
     </div>

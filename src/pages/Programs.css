@@ -1,0 +1,142 @@
+/* Programs.css – No grids, no card boxes, clean vertical stack */
+
+.programs-page {
+  background-color: #FFFFFF;
+}
+
+.programs-hero {
+  background: #FFFFFF;
+  border-bottom: 3px solid #2E7D32;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.programs-hero h1 {
+  color: #4E2A1E;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.programs-hero p {
+  color: #8B5E3C;
+  font-size: 1.2rem;
+}
+
+.programs-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  font-size: 1.1rem;
+  color: #2E2E2E;
+}
+
+/* Each main program section */
+.program-section {
+  margin-bottom: 4rem;
+  border-top: 1px solid #eee;
+  padding-top: 2rem;
+}
+
+.program-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-left: 6px solid; /* color set inline */
+  padding-left: 1rem;
+}
+
+.program-icon {
+  font-size: 3rem;
+}
+
+.program-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.program-description {
+  font-size: 1.1rem;
+  color: #4E2A1E;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+/* Sub-program – each as a separate block, stacked vertically */
+.sub-program {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.sub-program:last-child {
+  border-bottom: none;
+}
+
+.sub-program-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--sub-color, #2E7D32); /* dynamic via inline style */
+}
+
+.sub-program-desc {
+  font-size: 1rem;
+  color: #5a3a2a;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.sub-program-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.sub-program-list li {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #2d2d2d;
+}
+
+.check-icon {
+  color: #FFB81C;
+  font-weight: bold;
+}
+
+/* Call to action button */
+.programs-cta {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.btn-programs {
+  display: inline-block;
+  background-color: #2E7D32;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-programs:hover {
+  background-color: #1b5e20;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .program-title {
+    font-size: 1.6rem;
+  }
+  .sub-program-name {
+    font-size: 1.3rem;
+  }
+  .program-description {
+    max-width: 100%;
+  }
+}

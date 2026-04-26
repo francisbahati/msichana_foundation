@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Pages.css';
+import './BookingContact.css';
 
 function Contact() {
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });

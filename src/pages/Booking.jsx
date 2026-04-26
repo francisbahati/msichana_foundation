@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './BookingContact.css';
 
 function Booking() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,7 @@ function Booking() {
         <h1>Reserve Your Spot</h1>
         <p>Start your journey of sport, safari, and social impact.</p>
       </div>
+
       <div className="booking-grid">
         <div className="booking-form-container">
           <form onSubmit={handleSubmit}>
@@ -29,8 +31,14 @@ function Booking() {
             <div className="form-group"><label>Program</label>
               <select name="program" value={formData.program} onChange={handleChange} required>
                 <option value="">Select a program</option>
-                <option>Soccer Experience</option><option>Marathon Experience</option><option>Cycling Tour</option>
-                <option>Mountain Biking</option><option>Walking Safari</option><option>Netball</option><option>Volleyball</option>
+                <option>Discovery Eyes – Soccer with Safari</option>
+                <option>Discovery Eyes – Netball with Safari</option>
+                <option>Discovery Eyes – Basketball/Volleyball with Safari</option>
+                <option>Suzuki Kilimanjaro Ride & Mountain Biking</option>
+                <option>Migration Walk (Northern Circuit)</option>
+                <option>Community Impact Safari Program (CISP)</option>
+                <option>Hash Run (Marathon Experience)</option>
+                <option>Agribusiness – SMART Horticulture</option>
               </select>
             </div>
             <div className="form-group"><label>Preferred Dates</label><input type="text" name="dates" placeholder="e.g., June 2026" value={formData.dates} onChange={handleChange} required /></div>
@@ -39,10 +47,16 @@ function Booking() {
             <button type="submit" className="btn-primary btn-block">Confirm Booking</button>
           </form>
         </div>
+
         <div className="booking-info">
           <div className="payment-info">
             <h3>Payment & After Booking</h3>
-            <ul><li>💰 30% deposit required</li><li>🔒 Secure international payments (Visa, Mastercard, PayPal)</li><li>📧 Confirmation within 24h</li><li>📋 Travel details & preparation guide sent after deposit</li></ul>
+            <ul>
+              <li>💰 30% deposit required</li>
+              <li>🔒 Secure international payments (Visa, Mastercard, PayPal)</li>
+              <li>📧 Confirmation within 24h</li>
+              <li>📋 Travel details & preparation guide sent after deposit</li>
+            </ul>
             <p>You will receive confirmation, travel details, and preparation guidance.</p>
           </div>
         </div>

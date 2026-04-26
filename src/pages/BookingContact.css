@@ -1,0 +1,198 @@
+/* ===================================
+   BOOKING & CONTACT PAGES – SHARED STYLES
+   Colors: Green (#2E7D32), Yellow (#FFB81C), Dark Brown (#4E2A1E)
+   =================================== */
+
+/* ------ Hero sections (both pages) ------ */
+.booking-hero,
+.page-hero {
+  background: linear-gradient(135deg, #2E7D32, #4E2A1E);
+  color: white;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.booking-hero h1,
+.page-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.booking-hero p,
+.page-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ------ Booking page layout (two columns) ------ */
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .booking-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------ Contact page layout (two columns) ------ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------ Form containers (shared) ------ */
+.booking-form-container,
+.booking-info,
+.contact-form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: #FEF9E6; /* light yellow/cream */
+  padding: 1.5rem;
+  border-radius: 20px;
+  transition: transform 0.2s;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+}
+
+.info-card h3 {
+  color: #4E2A1E;
+  margin-bottom: 0.5rem;
+}
+
+.info-card p {
+  color: #2d2d2d;
+}
+
+/* ------ Form elements ------ */
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #4E2A1E;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2E7D32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.1);
+}
+
+/* ------ Payment info box (Booking) ------ */
+.payment-info {
+  background: #FEF9E6;
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
+.payment-info h3 {
+  color: #4E2A1E;
+  margin-bottom: 1rem;
+}
+
+.payment-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.payment-info li {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ------ Partner CTA (Contact) ------ */
+.partner-cta {
+  background: #FEF9E6;
+  padding: 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.partner-cta h2 {
+  color: #4E2A1E;
+  margin-bottom: 0.5rem;
+}
+
+/* ------ Buttons (unified for both pages) ------ */
+.btn-primary {
+  display: inline-block;
+  background-color: #2E7D32;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  border-radius: 40px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #1b5e20;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+}
+
+/* ------ Container utilities (if not globally defined) ------ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}

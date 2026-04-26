@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import './Home.css';
 
-// ----- custom hooks (same as original but cleaned) -----
+
+// ----- Crossfade Carousel Hook (smooth transition) -----
 function useCrossfadeCarousel(images, intervalMs = 5000) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageA, setImageA] = useState(images[0]);
@@ -20,10 +22,10 @@ function useCrossfadeCarousel(images, intervalMs = 5000) {
     let timeoutId;
     if (isActiveA) {
       setImageB(newImage);
-      timeoutId = setTimeout(() => setIsActiveA(false), 50);
+      timeoutId = setTimeout(() => setIsActiveA(false), 80);
     } else {
       setImageA(newImage);
-      timeoutId = setTimeout(() => setIsActiveA(true), 50);
+      timeoutId = setTimeout(() => setIsActiveA(true), 80);
     }
     return () => clearTimeout(timeoutId);
   }, [currentIndex, images, isActiveA]);
@@ -31,6 +33,7 @@ function useCrossfadeCarousel(images, intervalMs = 5000) {
   return { currentIndex, setCurrentIndex, imageA, imageB, isActiveA };
 }
 
+// ----- CountUp Animation -----
 function useCountUp(target, duration = 2000) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -51,7 +54,7 @@ function useCountUp(target, duration = 2000) {
   return count;
 }
 
-// ----- Hero Component -----
+// ----- Hero Component (smooth crossfade) -----
 function HeroSection({ images }) {
   const { currentIndex, setCurrentIndex, imageA, imageB, isActiveA } = useCrossfadeCarousel(images, 5000);
   return (
@@ -62,7 +65,7 @@ function HeroSection({ images }) {
         <div className="hero-overlay" />
       </div>
       <div className="hero-content">
-        <h1 className="slide-up">Empowering Girls.<br />Transforming Futures.</h1>
+        <h1 className="slide-up">Unlocking Potential.<br />Through Sports.</h1>
         <p className="hero-subtext fade-in-delay">
           We unlock the potential of girls and young women through sports, education, and leadership opportunities across Africa.
         </p>
@@ -73,10 +76,17 @@ function HeroSection({ images }) {
       </div>
       <div className="carousel-indicators">
         {images.map((_, idx) => (
-          <button key={idx} className={`carousel-dot ${idx === currentIndex ? 'active' : ''}`} onClick={() => setCurrentIndex(idx)} aria-label={`View image ${idx + 1}`} />
+          <button
+            key={idx}
+            className={`carousel-dot ${idx === currentIndex ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(idx)}
+            aria-label={`View image ${idx + 1}`}
+          />
         ))}
       </div>
-      <div className="scroll-indicator" aria-label="Scroll down"><div className="scroll-arrow" /></div>
+      <div className="scroll-indicator" aria-label="Scroll down">
+        <div className="scroll-arrow" />
+      </div>
     </section>
   );
 }
@@ -119,22 +129,22 @@ function AboutUsPreview() {
   );
 }
 
-// ----- Core Focus -----
+// ----- Core Focus (3 pillars) -----
 const corePrograms = [
   { icon: '⚽', title: 'Sports Empowerment', description: 'We use sports to build confidence, discipline, and leadership.' },
   { icon: '📚', title: 'Education & Mentorship', description: 'We support girls to stay in school and achieve their goals.' },
-  { icon: '💼', title: 'Economic Empowerment', description: 'We provide skills for financial independence and entrepreneurship.' },
+  { icon: '🌱', title: 'Economic Empowerment', description: 'We provide skills for financial independence and entrepreneurship.' },
 ];
 
 function CoreFocus() {
   return (
-    <section className="core-focus-section" style={{ padding: '4rem 1.5rem' }}>
+    <section className="core-focus-section">
       <div className="container">
         <h2 className="section-title">Our Core Focus</h2>
         <p className="core-description">We tackle the root causes of gender inequality through three interconnected pillars that build confidence, knowledge, and financial independence.</p>
         <div className="programs-grid">
           {corePrograms.map((p, idx) => (
-            <div key={idx} className="program-card animated-card">
+            <div key={idx} className="program-card">
               <div className="program-icon">{p.icon}</div>
               <h3>{p.title}</h3>
               <p>{p.description}</p>
@@ -146,26 +156,27 @@ function CoreFocus() {
   );
 }
 
-// ----- Sports Tourism Preview -----
+// ----- Sports Tourism Preview (matching the three programs) -----
 const tourismPreview = [
-  { name: 'Soccer', icon: '⚽' }, { name: 'Marathon', icon: '🏃‍♀️' },
-  { name: 'Cycling', icon: '🚴' }, { name: 'Safari Walk', icon: '🦒' }
+  { name: 'Discovery Eyes', icon: '⚽' },
+  { name: 'Suzuki Ride', icon: '🚴' },
+  { name: 'Migration Walk', icon: '🦒' }
 ];
 
 function SportsTourismPreview() {
   return (
     <section className="sports-tourism-preview">
       <div className="container">
-        <h2 className="section-title">Experience Sports. Discover Africa. Create Impact.</h2>
+        <h2 className="section-title">Experience Sports. Discover Africa.<br></br> Create Impact.</h2>
         <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 2rem', color: '#4E2A1E' }}>
           Join our unique sports tourism programs that combine professional training with unforgettable safari experiences in Tanzania.
         </p>
-        <div className="programs-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+        <div className="programs-grid">
           {tourismPreview.map((item, idx) => (
             <div key={idx} className="program-card">
               <div className="program-icon">{item.icon}</div>
               <h3>{item.name}</h3>
-              <Link to="/tourism" className="btn-select" style={{ marginTop: '1rem' }}>Learn More</Link>
+              <Link to="/tourism" className="btn-select">Learn More</Link>
             </div>
           ))}
         </div>
@@ -177,19 +188,22 @@ function SportsTourismPreview() {
   );
 }
 
+// ----- Final Call to Action -----
 function FinalCTA() {
   return (
     <section className="cta-section">
-      <div className="section-title">
-        <h2>Be Part of the Change</h2>
-        
-        
+      <div className="container">
+        <h2 className="section-title">Be Part of the Change</h2>
+        <div className="cta-buttons">
+          <Link to="/booking" className="btn-primary">Book Your Experience</Link>
+          <Link to="/contact" className="btn-secondary">Become a Partner</Link>
+        </div>
       </div>
     </section>
   );
 }
 
-// ----- MAIN HOME COMPONENT -----
+// ----- MAIN HOME COMPONENT (with your original images) -----
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const heroImages = [
@@ -204,7 +218,7 @@ function Home() {
   }, []);
 
   return (
-    <div className={`fade-in ${isVisible ? 'visible' : ''}`}>
+    <div className={`home-page fade-in ${isVisible ? 'visible' : ''}`}>
       <HeroSection images={heroImages} />
       <ImpactStats />
       <AboutUsPreview />
