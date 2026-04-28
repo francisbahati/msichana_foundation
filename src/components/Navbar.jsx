@@ -10,6 +10,9 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
+        <Link to ="/" className ="navbar-msichana-logo" onClick={closeMenu} >
+        <img src="./images/msichana logo.webp" alt="Msichana Foundation Logo"/>
+        </Link>
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
           Msichana Foundation
         </Link>

@@ -23,6 +23,13 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
+  margin-left: -450px;
+}
+
+.navbar-msichana-logo img {
+  height: 90px;
+  width: auto;
+  margin-left: -170px;
 }
 
 .menu-icon {
